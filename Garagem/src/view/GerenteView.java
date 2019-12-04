@@ -1,4 +1,4 @@
-package entity;
+package view;
 
 public class GerenteView {
 }
