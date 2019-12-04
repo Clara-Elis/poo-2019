@@ -1,5 +1,6 @@
 package view;
 
+import Principal.Principal;
 import controller.MarcaController;
 import entity.Marca;
 
@@ -14,7 +15,7 @@ public class MarcaView {
         this.controller = new MarcaController();
     }
 
-    public void menuMarca(){
+    public void menu(){
 
         Scanner sc = new Scanner(System.in);
 
@@ -45,13 +46,16 @@ public class MarcaView {
             case 5:
                 this.buscarPeloNome();
                 break;
+            case 0:
+                Principal principal = new Principal();
+                principal.menuPrincipal();
+                break;
             default:
+                System.out.println("Opcao invalida, tente novamente!");
                 break;
 
         }
-
-        this.menuMarca();
-
+        this.menu();
     }
 
     public void cadastrar(){
@@ -139,7 +143,7 @@ public class MarcaView {
 
         if(listaMarcas == null){
             System.out.println("#Lista vazia");
-            this.menuMarca();
+            this.menu();
         }else{
             System.out.println("#Lista de Marcas");
             for (int i=0; i<listaMarcas.size(); i++){
@@ -163,8 +167,5 @@ public class MarcaView {
         } else {
             System.out.println("> ERRO - Marca não encontrada!");
         }
-
     }
-
-
 }
