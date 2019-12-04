@@ -1,4 +1,4 @@
-package entity;
+package controller;
 
-public class Venda {
+public class VendaController {
 }
