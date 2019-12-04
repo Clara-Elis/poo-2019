@@ -44,7 +44,11 @@ public class MarcaModel {
     }
 
     public List<Marca> listar(){
-        return this.bdMarca;
+        if(this.bdMarca.isEmpty()){
+            return null;
+        }else{
+            return this.bdMarca;
+        }
     }
 
     public Marca buscarPeloId(int id){

@@ -134,16 +134,18 @@ public class MarcaView {
     }
 
     public void listar(){
-
-        System.out.println("#Lista de Marcas");
-
         List<Marca> listaMarcas;
         listaMarcas = this.controller.listar();
 
-        for (int i=0; i<listaMarcas.size(); i++){
-            System.out.println("> "+ listaMarcas.get(i).getId() + " - " +listaMarcas.get(i).getNome() );
+        if(listaMarcas == null){
+            System.out.println("#Lista vazia");
+            this.menuMarca();
+        }else{
+            System.out.println("#Lista de Marcas");
+            for (int i=0; i<listaMarcas.size(); i++){
+                System.out.println("> "+ listaMarcas.get(i).getId() + " - " +listaMarcas.get(i).getNome() );
+            }
         }
-
     }
 
     public void buscarPeloNome(){
