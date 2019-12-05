@@ -1,6 +1,6 @@
 package view;
 
-import Principal.Principal;
+import principal.Principal;
 import controller.BadecoController;
 
 import java.util.Scanner;
@@ -57,7 +57,7 @@ public class BadecoView {
     }
 
     public void cadastrar(){
-
+        System.out.println("Carai cuzao, chamou certinho!");
     }
 
     public void altualizar(){

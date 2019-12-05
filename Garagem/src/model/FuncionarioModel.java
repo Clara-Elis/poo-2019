@@ -7,34 +7,54 @@ import java.util.List;
 
 public class FuncionarioModel {
 
-    private List<Funcionario> bdCliente;
+    private List<Funcionario> bdFuncionario;
 
 
     public FuncionarioModel() {
-        this.bdCliente = new ArrayList<Funcionario>();
+        this.bdFuncionario = new ArrayList<Funcionario>();
     }
 
     public Funcionario cadastrar(Funcionario funcionario){
-        return null;
+        this.bdFuncionario.add(funcionario);
+
+        return funcionario;
     }
 
-    public boolean altualizar(Funcionario funcionario){
-        return false;
+    public boolean altualizar(Funcionario funcionario) {
+        Funcionario buscaFuncionario = this.buscarPeloId(funcionario.getCodigo());
+
+        int index = this.bdFuncionario.indexOf(buscaFuncionario);
+
+        if( this.bdFuncionario.set(index, funcionario) != null ){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean excluir(Funcionario funcionario){
-        return false;
+        return this.bdFuncionario.remove(funcionario);
     }
 
     public List<Funcionario> listar(){
-        return null;
+        return this.bdFuncionario;
     }
 
     public Funcionario buscarPeloId(int id){
+        for(int i = 0; i< this.bdFuncionario.size(); i++){
+            if(this.bdFuncionario.get(i).getCodigo() == id){
+                return this.bdFuncionario.get(i);
+            }
+        }
         return null;
     }
 
     public Funcionario buscarPeloNome(String nome){
+        for(int i = 0; i< this.bdFuncionario.size(); i++){
+            if(this.bdFuncionario.get(i).getNome().equals(nome)){
+                return this.bdFuncionario.get(i);
+            }
+        }
         return null;
     }
 

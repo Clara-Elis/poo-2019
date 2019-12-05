@@ -1,6 +1,6 @@
 package view;
 
-import Principal.Principal;
+import principal.Principal;
 import controller.VendaController;
 
 import java.util.Scanner;

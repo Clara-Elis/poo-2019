@@ -1,6 +1,6 @@
 package view;
 
-import Principal.Principal;
+import principal.Principal;
 import controller.ClienteController;
 
 import java.util.Scanner;

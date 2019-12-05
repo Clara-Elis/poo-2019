@@ -7,34 +7,57 @@ import java.util.List;
 
 public class ModeloModel {
 
-    private List<Modelo> bdCliente;
+    private List<Modelo> bdModelo;
 
 
     public ModeloModel() {
-        this.bdCliente = new ArrayList<Modelo>();
+        this.bdModelo = new ArrayList<Modelo>();
     }
 
     public Modelo cadastrar(Modelo modelo){
-        return null;
+        int id = this.bdModelo.size() + 1;
+        modelo.setId(id);
+
+        this.bdModelo.add(modelo);
+
+        return modelo;
     }
 
     public boolean altualizar(Modelo modelo){
-        return false;
+        Modelo buscaModelo = this.buscarPeloId(modelo.getId());
+
+        int index = this.bdModelo.indexOf(buscaModelo);
+
+        if( this.bdModelo.set(index, modelo) != null ){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean excluir(Modelo modelo){
-        return false;
+        return this.bdModelo.remove(modelo);
     }
 
     public List<Modelo> listar(){
-        return null;
+        return this.bdModelo;
     }
 
     public Modelo buscarPeloId(int id){
+        for(int i = 0; i< this.bdModelo.size(); i++){
+            if(this.bdModelo.get(i).getId() == id){
+                return this.bdModelo.get(i);
+            }
+        }
         return null;
     }
 
     public Modelo buscarPeloNome(String nome){
+        for(int i = 0; i< this.bdModelo.size(); i++){
+            if(this.bdModelo.get(i).getNome().equals(nome)){
+                return this.bdModelo.get(i);
+            }
+        }
         return null;
     }
 }
