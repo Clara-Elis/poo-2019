@@ -88,8 +88,6 @@ public class FuncionarioView {
         Scanner sc = new Scanner(System.in);
         Scanner sci = new Scanner(System.in);
 
-        System.out.println("To no Funcionario Comum!");
-
         Funcionario funcionario = new Funcionario();
 
         System.out.println("> Informe o nome: ");
