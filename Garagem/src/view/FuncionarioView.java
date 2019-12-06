@@ -23,7 +23,7 @@ public class FuncionarioView {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("#Menu Modelo");
+        System.out.println("#Menu Funcionario");
 
         System.out.println(" 1 - Cadastrar");
         System.out.println(" 2 - Atualizar");
@@ -36,7 +36,29 @@ public class FuncionarioView {
         switch (op){
 
             case 1:
-                this.cadastrar();
+                int tipoFunc = 0;
+
+                System.out.println("#!# Cadastro de Funcionario #!#");
+                System.out.println("Qual o tipo de Funcionario ? [1- Gerente, 2- Badeco, 3-Funcionario Comum]");
+                tipoFunc = sc.nextInt();
+
+                if(tipoFunc != 1 && tipoFunc != 2 && tipoFunc != 3){
+                    System.out.println("O tipo informado e invalido ou nao existe! Tente novamente.");
+                    this.menu();
+                }else if(tipoFunc == 1){
+                    GerenteView gerenteView = new GerenteView();
+
+                    gerenteView.cadastrar();
+                    break;
+                }else if(tipoFunc == 2){
+                    BadecoView badecoView = new BadecoView();
+
+                    badecoView.menu();
+                    break;
+                }else{
+                    this.cadastrar();
+                    break;
+                }
                 break;
             case 2:
                 this.altualizar();
@@ -66,61 +88,42 @@ public class FuncionarioView {
         Scanner sc = new Scanner(System.in);
         Scanner sci = new Scanner(System.in);
 
+        System.out.println("To no Funcionario Comum!");
+
         Funcionario funcionario = new Funcionario();
 
-        int tipoFunc = 0;
+        System.out.println("> Informe o nome: ");
+        funcionario.setNome(sc.nextLine());
 
-        System.out.println("#!# Cadastro de Funcionario #!#");
-        System.out.println("Qual o tipo de Funcionario ? [1- Gerente, 2- Badeco, 3-Funcionario Comum]");
-        tipoFunc = sci.nextInt();
+        System.out.println("> Informe o CPF: ");
+        funcionario.setCpf(sc.nextLine());
 
-        if(tipoFunc != 1 && tipoFunc != 2 && tipoFunc != 3){
-            System.out.println("O tipo informado e invalido ou nao existe! Tente novamente.");
-            this.cadastrar();
-        }else{
-            System.out.println("> Informe o nome: ");
-            funcionario.setNome(sc.nextLine());
+        System.out.println("> Informe o endereco: ");
+        funcionario.setEndereco(sc.nextLine());
 
-            System.out.println("> Informe o CPF: ");
-            funcionario.setCpf(sc.nextLine());
+        System.out.println("> Informe o telefone: ");
+        funcionario.setTelefone(sc.nextLine());
 
-            System.out.println("> Informe o endereco: ");
-            funcionario.setEndereco(sc.nextLine());
-
-            System.out.println("> Informe o telefone: ");
-            funcionario.setTelefone(sc.nextLine());
-
-            try {
-                System.out.println("> Informe a data de nascimento: ");
-                String data = sc.nextLine();
-                Date dt = new SimpleDateFormat("dd/MM/yyyy").parse(data);
-                funcionario.setDt_nascimento(dt);
-            } catch (ParseException e) {
-                System.out.println(e.getMessage());
-            }
-
-            System.out.println("> Informe o codigo: ");
-            funcionario.setCodigo(sci.nextInt());
-
-            System.out.println("> Informe o usuario: ");
-            funcionario.setUsuario(sc.nextLine());
-
-            System.out.println("> Informe a senha: ");
-            funcionario.setSenha(sc.nextLine());
+        try {
+            System.out.println("> Informe a data de nascimento: ");
+            String data = sc.nextLine();
+            Date dt = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+            funcionario.setDt_nascimento(dt);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
         }
 
-        if(tipoFunc == 1){
-            GerenteView gerenteView = new GerenteView();
+        System.out.println("> Informe o codigo: ");
+        funcionario.setCodigo(sci.nextInt());
 
-            gerenteView.cadastrar();
-        }else if(tipoFunc == 2){
-            BadecoView badecoView = new BadecoView();
+        System.out.println("> Informe o usuario: ");
+        funcionario.setUsuario(sc.nextLine());
 
-            badecoView.cadastrar();
-        }else{
-            System.out.println("> Informe o salario");
-            funcionario.setSalario(sci.nextFloat());
-        }
+        System.out.println("> Informe a senha: ");
+        funcionario.setSenha(sc.nextLine());
+
+        System.out.println("> Informe o salario: ");
+        funcionario.setSalario(sc.nextFloat());
 
         if(controller.cadastrar(funcionario) != null){
             System.out.println("Funcionario cadastrado com sucesso");
@@ -133,7 +136,7 @@ public class FuncionarioView {
         Scanner sc = new Scanner(System.in);
         Scanner sci = new Scanner(System.in);
 
-        System.out.println("#Atualizar Modelo");
+        System.out.println("#Atualizar Funcionario");
 
         System.out.println("> Informe o funcionario a ser atualizado");
         String nome = sc.nextLine();
@@ -206,9 +209,9 @@ public class FuncionarioView {
         if(funcionario != null){
 
             if( this.controller.excluir(funcionario) ){
-                System.out.println("> SUCESSO - Marca excluída!");
+                System.out.println("> SUCESSO - Funcionario excluído!");
             } else {
-                System.out.println("> ERRO INTERNO - Não foi possível excluir a marca!");
+                System.out.println("> ERRO INTERNO - Não foi possível excluir o funcionario!");
             }
 
 
@@ -228,6 +231,17 @@ public class FuncionarioView {
             for (int i=0; i<listaFuncionarios.size(); i++){
                 System.out.println("> "+ listaFuncionarios.get(i).getCodigo() + " - " + listaFuncionarios.get(i).getNome() + " - " + listaFuncionarios.get(i).getTelefone()
                 + " - " + listaFuncionarios.get(i).getEndereco() + " - " + listaFuncionarios.get(i).getDt_nascimento());
+                if(listaFuncionarios.get(i).calculaSalario() <= listaFuncionarios.get(i).getSalario()*0.8){
+                    BadecoView badecoView = new BadecoView();
+                    System.out.println("Esse funcionario e um badeco");
+
+                    badecoView.listar();
+                }else if(listaFuncionarios.get(i).calculaSalario() >= listaFuncionarios.get(i).getSalario()*1.5){
+                    System.out.println("Esse funcionario e um gerente");
+
+                    GerenteView gerenteView = new GerenteView();
+                    gerenteView.listar();
+                }
             }
         }
     }
@@ -247,7 +261,7 @@ public class FuncionarioView {
                     " - " + funcionario.getTelefone() + " - " + funcionario.getEndereco() + " - " + funcionario.getCpf() + " - " + funcionario.getSalario()
                     + " - " + funcionario.getUsuario() + " - " + funcionario.getSenha());
         } else {
-            System.out.println("> ERRO - Modelo não encontrado!");
+            System.out.println("> ERRO - Funcionario não encontrado!");
         }
     }
 }
