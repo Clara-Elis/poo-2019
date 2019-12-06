@@ -142,8 +142,9 @@ public class FuncionarioView {
         Funcionario funcionario = this.controller.buscarPeloNome(nome);
 
         if(funcionario != null){
-            System.out.println("> Funcionario: " + funcionario.getCodigo() + funcionario.getNome() + funcionario.getDt_nascimento() + funcionario.getTelefone()
-                    + funcionario.getEndereco() + funcionario.getCpf() + funcionario.getSalario() + funcionario.getUsuario() + funcionario.getSenha());
+            System.out.println("> Funcionario: " + funcionario.getCodigo() + " - " + funcionario.getNome() + " - "  + funcionario.getDt_nascimento() + " - "
+                    + funcionario.getTelefone() + " - " + funcionario.getEndereco() + " - "  + funcionario.getCpf() + " - "  + funcionario.getSalario()
+                    + " - " + funcionario.getUsuario() + " - "  + funcionario.getSenha());
 
             System.out.println("> Informe o novo nome: ");
             funcionario.setNome(sc.nextLine());
