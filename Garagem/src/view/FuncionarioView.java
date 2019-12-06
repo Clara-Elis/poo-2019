@@ -123,7 +123,7 @@ public class FuncionarioView {
         funcionario.setSenha(sc.nextLine());
 
         System.out.println("> Informe o salario: ");
-        funcionario.setSalario(sc.nextFloat());
+        funcionario.setSalario(funcionario.calculaSalario(sc.nextFloat()));
 
         if(controller.cadastrar(funcionario) != null){
             System.out.println("Funcionario cadastrado com sucesso");
@@ -177,18 +177,6 @@ public class FuncionarioView {
             System.out.println("> Informe a nova senha: ");
             funcionario.setSenha(sc.nextLine());
 
-            if(funcionario.calculaSalario() <= funcionario.getSalario()*0.8){
-                System.out.println("Esse funcionario e um badeco");
-
-                BadecoView badecoView = new BadecoView();
-                badecoView.altualizar();
-            }else if(funcionario.calculaSalario() >= funcionario.getSalario()*1.5){
-                System.out.println("Esse funcionario e um gerente");
-
-                GerenteView gerenteView = new GerenteView();
-                gerenteView.altualizar();
-            }
-
             if( this.controller.altualizar(funcionario) == true){
                 System.out.println("> Funcionario alterado com sucesso");
             } else {
@@ -231,17 +219,6 @@ public class FuncionarioView {
             for (int i=0; i<listaFuncionarios.size(); i++){
                 System.out.println("> "+ listaFuncionarios.get(i).getCodigo() + " - " + listaFuncionarios.get(i).getNome() + " - " + listaFuncionarios.get(i).getTelefone()
                 + " - " + listaFuncionarios.get(i).getEndereco() + " - " + listaFuncionarios.get(i).getDt_nascimento());
-                if(listaFuncionarios.get(i).calculaSalario() <= listaFuncionarios.get(i).getSalario()*0.8){
-                    BadecoView badecoView = new BadecoView();
-                    System.out.println("Esse funcionario e um badeco");
-
-                    badecoView.listar();
-                }else if(listaFuncionarios.get(i).calculaSalario() >= listaFuncionarios.get(i).getSalario()*1.5){
-                    System.out.println("Esse funcionario e um gerente");
-
-                    GerenteView gerenteView = new GerenteView();
-                    gerenteView.listar();
-                }
             }
         }
     }

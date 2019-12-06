@@ -44,4 +44,8 @@ public class Funcionario extends Pessoa implements IFuncionario {
     public float calculaSalario() {
         return salario * 1.0f;
     }
+
+    public float calculaSalario(float salario) {
+        return salario * 1.0f;
+    }
 }
