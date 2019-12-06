@@ -16,6 +16,12 @@ public class Gerente extends Funcionario implements IFuncionario {
         this.departamento = departamento;
     }
 
+    @Override
+    public float getSalario() {
+        return salario;
+    }
+
+    @Override
     public void setSalario(float salario) {
         this.salario = salario;
     }
@@ -33,6 +39,6 @@ public class Gerente extends Funcionario implements IFuncionario {
     }
 
     public float calculaSalarioGerente(float salario) {
-        return salario * 0.8f;
+        return salario * 1.5f;
     }
 }

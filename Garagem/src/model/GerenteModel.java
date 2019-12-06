@@ -7,34 +7,55 @@ import java.util.List;
 
 public class GerenteModel {
 
-    private List<Gerente> bdCliente;
+    private List<Gerente> bdGerente;
 
 
     public GerenteModel() {
-        this.bdCliente = new ArrayList<Gerente>();
+        this.bdGerente = new ArrayList<Gerente>();
     }
 
     public Gerente cadastrar(Gerente gerente){
-        return null;
+
+        this.bdGerente.add(gerente);
+        return gerente;
     }
 
-    public boolean altualizar(Gerente gerente){
-        return false;
+    public boolean altualizar(Gerente gerente) {
+        Gerente buscaGerente = this.buscarPeloId(gerente.getCodigo());
+
+        int index = this.bdGerente.indexOf(buscaGerente);
+
+        if( this.bdGerente.set(index, gerente) != null ){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean excluir(Gerente gerente){
-        return false;
+        return this.bdGerente.remove(gerente);
     }
 
     public List<Gerente> listar(){
-        return null;
+        return this.bdGerente;
     }
 
     public Gerente buscarPeloId(int id){
+        for(int i = 0; i< this.bdGerente.size(); i++){
+            if(this.bdGerente.get(i).getCodigo() == id){
+                return this.bdGerente.get(i);
+            }
+        }
         return null;
     }
 
     public Gerente buscarPeloNome(String nome){
+        for(int i = 0; i< this.bdGerente.size(); i++){
+            if(this.bdGerente.get(i).getNome().equals(nome)){
+                return this.bdGerente.get(i);
+            }
+        }
         return null;
     }
+
 }

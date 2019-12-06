@@ -48,7 +48,7 @@ public class FuncionarioView {
                 }else if(tipoFunc == 1){
                     GerenteView gerenteView = new GerenteView();
 
-                    gerenteView.cadastrar();
+                    gerenteView.menu();
                     break;
                 }else if(tipoFunc == 2){
                     BadecoView badecoView = new BadecoView();

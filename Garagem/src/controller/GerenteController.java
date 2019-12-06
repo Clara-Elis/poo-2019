@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Badeco;
 import entity.Gerente;
 import model.GerenteModel;
 
