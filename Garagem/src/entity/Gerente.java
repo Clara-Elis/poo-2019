@@ -28,7 +28,11 @@ public class Gerente extends Funcionario implements IFuncionario {
         this.matricula = matricula;
     }
 
-    public float calculaSalario() {
+    public float calculaSalarioGerente() {
         return salario * 1.5f;
+    }
+
+    public float calculaSalarioGerente(float salario) {
+        return salario * 0.8f;
     }
 }

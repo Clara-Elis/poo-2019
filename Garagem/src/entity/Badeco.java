@@ -24,7 +24,11 @@ public class Badeco extends Funcionario implements IFuncionario {
         this.salario = salario;
     }
 
-    public float calculaSalario() {
+    public float calculaSalarioBadeco() {
+        return salario * 0.8f;
+    }
+
+    public float calculaSalarioBadeco(float salario) {
         return salario * 0.8f;
     }
 }
