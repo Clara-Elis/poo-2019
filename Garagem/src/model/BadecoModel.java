@@ -15,26 +15,46 @@ public class BadecoModel {
     }
 
     public Badeco cadastrar(Badeco badeco){
-        return null;
+
+        this.bdBadeco.add(badeco);
+        return badeco;
     }
 
-    public boolean altualizar(Badeco badeco){
-        return false;
+    public boolean altualizar(Badeco badeco) {
+        Badeco buscaBadeco = this.buscarPeloId(badeco.getCodigo());
+
+        int index = this.bdBadeco.indexOf(buscaBadeco);
+
+        if( this.bdBadeco.set(index, badeco) != null ){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean excluir(Badeco badeco){
-        return false;
+        return this.bdBadeco.remove(badeco);
     }
 
     public List<Badeco> listar(){
-        return null;
+        return this.bdBadeco;
     }
 
     public Badeco buscarPeloId(int id){
+        for(int i = 0; i< this.bdBadeco.size(); i++){
+            if(this.bdBadeco.get(i).getCodigo() == id){
+                return this.bdBadeco.get(i);
+            }
+        }
         return null;
     }
 
     public Badeco buscarPeloNome(String nome){
+        for(int i = 0; i< this.bdBadeco.size(); i++){
+            if(this.bdBadeco.get(i).getNome().equals(nome)){
+                return this.bdBadeco.get(i);
+            }
+        }
         return null;
     }
 
