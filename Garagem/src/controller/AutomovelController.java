@@ -29,7 +29,11 @@ public class AutomovelController {
         return this.model.listar();
     }
 
-    public Automovel buscarPeloNome(String nome){
-        return this.model.buscarPeloNome(nome);
+    public Automovel buscarPelaPlaca(String placa){
+        return this.model.buscarPelaPlaca(placa );
+    }
+
+    public boolean verifica(String placa){
+        return this.model.verifica(placa);
     }
 }
