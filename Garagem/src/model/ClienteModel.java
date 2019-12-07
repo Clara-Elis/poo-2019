@@ -57,4 +57,13 @@ public class ClienteModel {
         }
         return null;
     }
+
+    public boolean verifica(String cpf){
+        for(int i = 0; i< this.bdCliente.size(); i++){
+            if ((this.bdCliente.get(i).getCpf().equals(cpf))){
+                return true;
+            }
+        }
+        return false;
+    }
 }

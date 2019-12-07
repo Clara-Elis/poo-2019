@@ -116,7 +116,14 @@ public class ClienteView {
             cliente.setNome(sc.nextLine());
 
             System.out.println("> Informe o novo CPF: ");
-            cliente.setCpf(sc.nextLine());
+            String cpf = sc.nextLine();
+
+            if(this.controller.verifica(cpf) == true){
+                System.out.println("CPF ja cadastrado");
+                this.menu();
+            }else{
+                cliente.setCpf(cpf);
+            }
 
             System.out.println("> Informe o novo endereco: ");
             cliente.setEndereco(sc.nextLine());
