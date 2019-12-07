@@ -15,27 +15,46 @@ public class ClienteModel {
     }
 
     public Cliente cadastrar(Cliente cliente){
-        return null;
+
+        this.bdCliente.add(cliente);
+        return cliente;
     }
 
-    public boolean altualizar(Cliente cliente){
-        return false;
+    public boolean altualizar(Cliente cliente) {
+        Cliente buscaCliente = this.buscarPeloId(cliente.getCodigo());
+
+        int index = this.bdCliente.indexOf(buscaCliente);
+
+        if( this.bdCliente.set(index, cliente) != null ){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean excluir(Cliente cliente){
-        return false;
+        return this.bdCliente.remove(cliente);
     }
 
     public List<Cliente> listar(){
-        return null;
+        return this.bdCliente;
     }
 
     public Cliente buscarPeloId(int id){
+        for(int i = 0; i< this.bdCliente.size(); i++){
+            if(this.bdCliente.get(i).getCodigo() == id){
+                return this.bdCliente.get(i);
+            }
+        }
         return null;
     }
 
     public Cliente buscarPeloNome(String nome){
+        for(int i = 0; i< this.bdCliente.size(); i++){
+            if(this.bdCliente.get(i).getNome().equals(nome)){
+                return this.bdCliente.get(i);
+            }
+        }
         return null;
     }
-
 }
