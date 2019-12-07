@@ -58,4 +58,13 @@ public class GerenteModel {
         return null;
     }
 
+    public boolean verifica(String cpf){
+        for(int i = 0; i< this.bdGerente.size(); i++){
+            if ((this.bdGerente.get(i).getCpf().equals(cpf))){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

@@ -32,4 +32,8 @@ public class FuncionarioController {
     public Funcionario buscarPeloNome(String nome){
         return this.model.buscarPeloNome(nome);
     }
+
+    public boolean verifica(String cpf){
+        return this.model.verifica(cpf);
+    }
 }

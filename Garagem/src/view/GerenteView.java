@@ -70,7 +70,14 @@ public class GerenteView {
         gerente.setNome(sc.nextLine());
 
         System.out.println("> Informe o CPF: ");
-        gerente.setCpf(sc.nextLine());
+        String cpf = sc.nextLine();
+
+        if(this.controller.verifica(cpf) == true){
+            System.out.println("CPF ja cadastrado");
+            this.menu();
+        }else{
+            gerente.setCpf(cpf);
+        }
 
         System.out.println("> Informe o endereco: ");
         gerente.setEndereco(sc.nextLine());

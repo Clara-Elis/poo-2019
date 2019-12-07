@@ -94,7 +94,14 @@ public class FuncionarioView {
         funcionario.setNome(sc.nextLine());
 
         System.out.println("> Informe o CPF: ");
-        funcionario.setCpf(sc.nextLine());
+        String cpf = sc.nextLine();
+
+        if(this.controller.verifica(cpf) == true){
+            System.out.println("CPF ja cadastrado");
+            this.menu();
+        }else{
+            funcionario.setCpf(cpf);
+        }
 
         System.out.println("> Informe o endereco: ");
         funcionario.setEndereco(sc.nextLine());

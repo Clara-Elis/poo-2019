@@ -58,4 +58,12 @@ public class BadecoModel {
         return null;
     }
 
+    public boolean verifica(String cpf){
+        for(int i = 0; i< this.bdBadeco.size(); i++){
+            if ((this.bdBadeco.get(i).getCpf().equals(cpf))){
+                return true;
+            }
+        }
+        return false;
+    }
 }

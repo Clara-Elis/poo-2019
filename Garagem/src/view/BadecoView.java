@@ -72,7 +72,14 @@ public class BadecoView {
         badeco.setNome(sc.nextLine());
 
         System.out.println("> Informe o CPF: ");
-        badeco.setCpf(sc.nextLine());
+        String cpf = sc.nextLine();
+
+        if(this.controller.verifica(cpf) == true){
+            System.out.println("CPF ja cadastrado");
+            this.menu();
+        }else{
+            badeco.setCpf(cpf);
+        }
 
         System.out.println("> Informe o endereco: ");
         badeco.setEndereco(sc.nextLine());

@@ -58,4 +58,13 @@ public class FuncionarioModel {
         return null;
     }
 
+    public boolean verifica(String cpf){
+        for(int i = 0; i< this.bdFuncionario.size(); i++){
+            if ((this.bdFuncionario.get(i).getCpf().equals(cpf))){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
