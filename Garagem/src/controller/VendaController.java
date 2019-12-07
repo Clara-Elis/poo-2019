@@ -29,8 +29,8 @@ public class VendaController {
         return this.model.listar();
     }
 
-    public Venda buscarPeloNome(String nome){
-        return this.model.buscarPeloNome(nome);
+    public Venda buscarPeloCod(int cod){
+        return this.model.buscarPeloCod(cod);
     }
 
 }
