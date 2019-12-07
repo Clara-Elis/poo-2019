@@ -129,19 +129,17 @@ public class AutomovelView {
 
         if(automovel != null){
             System.out.println("> Automovel: " + automovel.getId() + " - " + automovel.getPlaca() + " - " + automovel.getCor() +
-                    " - " + automovel.getValor() + " - " + automovel.getChassi());
-
-            System.out.println("> Informe a nova placa: ");
-            automovel.setPlaca(sc.nextLine());
+                    " - " + automovel.getQuilometragem() + " - " + automovel.getValor() + " - " + automovel.getChassi());
 
             System.out.println("> Informe a nova cor: ");
             automovel.setCor(sc.nextLine());
 
             System.out.println("> Informe o novo valor: ");
-            automovel.setValor(sc.nextFloat());
+            automovel.setValor(sci.nextFloat());
 
-            System.out.println("> Informe o novo chassi: ");
-            automovel.setChassi(sc.nextLine());
+            System.out.println("> Informea nova quilometragem: ");
+            automovel.setQuilometragem(sci.nextFloat());
+
 
             if( this.controller.altualizar(automovel) == true){
                 System.out.println("> Automovel alterado com sucesso");
