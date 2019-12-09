@@ -19,6 +19,33 @@ public class FuncionarioView {
         this.controller = new FuncionarioController();
     }
 
+    public void tipoFuncionario(){
+        Scanner sc = new Scanner(System.in);
+
+        Principal principal = new Principal();
+
+        int tipoFunc = 0;
+
+        System.out.println("#!# Opcoes de Funcionario #!#");
+        System.out.println("Qual o tipo de Funcionario ? [1- Gerente, 2- Badeco, 3-Funcionario Comum]");
+        tipoFunc = sc.nextInt();
+
+        if(tipoFunc != 1 && tipoFunc != 2 && tipoFunc != 3){
+            System.out.println("O tipo informado e invalido ou nao existe! Tente novamente.");
+            principal.menuPrincipal();
+        }else if(tipoFunc == 1){
+            GerenteView gerenteView = new GerenteView();
+
+            gerenteView.menu();
+        }else if(tipoFunc == 2){
+            BadecoView badecoView = new BadecoView();
+
+            badecoView.menu();
+        }else{
+            this.menu();
+        }
+    }
+
     public void menu(){
 
         Scanner sc = new Scanner(System.in);
@@ -36,29 +63,7 @@ public class FuncionarioView {
         switch (op){
 
             case 1:
-                int tipoFunc = 0;
-
-                System.out.println("#!# Cadastro de Funcionario #!#");
-                System.out.println("Qual o tipo de Funcionario ? [1- Gerente, 2- Badeco, 3-Funcionario Comum]");
-                tipoFunc = sc.nextInt();
-
-                if(tipoFunc != 1 && tipoFunc != 2 && tipoFunc != 3){
-                    System.out.println("O tipo informado e invalido ou nao existe! Tente novamente.");
-                    this.menu();
-                }else if(tipoFunc == 1){
-                    GerenteView gerenteView = new GerenteView();
-
-                    gerenteView.menu();
-                    break;
-                }else if(tipoFunc == 2){
-                    BadecoView badecoView = new BadecoView();
-
-                    badecoView.menu();
-                    break;
-                }else{
-                    this.cadastrar();
-                    break;
-                }
+                this.cadastrar();
                 break;
             case 2:
                 this.altualizar();

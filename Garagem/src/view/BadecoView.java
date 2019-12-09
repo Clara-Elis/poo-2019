@@ -228,4 +228,8 @@ public class BadecoView {
             System.out.println("> ERRO - Badeco não encontrado!");
         }
     }
+
+    public void relatorio(){
+
+    }
 }

@@ -42,7 +42,7 @@ public class Principal {
                 break;
             case 4:
                 FuncionarioView funcionarioView = new FuncionarioView();
-                funcionarioView.menu();
+                funcionarioView.tipoFuncionario();
                 break;
             case 5:
                 ClienteView clienteView = new ClienteView();
@@ -60,9 +60,4 @@ public class Principal {
         }
         this.menuPrincipal();
     }
-
-    /**
-     * Tentar fazer buscar o modelo pelo polimorfismo (chamar a busca por nome de marca passando o nome da marca direto no metodo)
-     * Tentar pegar o valor do id quando ele retornar a lista
-     * */
 }
