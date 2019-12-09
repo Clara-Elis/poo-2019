@@ -17,7 +17,7 @@ public class PessoaView {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("#Menu Modelo");
+        System.out.println("#Menu Pessoa");
 
         System.out.println(" 1 - Cadastrar");
         System.out.println(" 2 - Atualizar");
