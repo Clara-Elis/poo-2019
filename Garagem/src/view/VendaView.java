@@ -29,7 +29,6 @@ public class VendaView {
         System.out.println(" 3 - Excluir");
         System.out.println(" 4 - Listar");
         System.out.println(" 5 - Buscar codigo");
-        System.out.println(" 6 - Relatorio");
         System.out.println(" 0 - Voltar");
         int op = sc.nextInt();
 
